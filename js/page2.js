@@ -1,9 +1,10 @@
-let url2 = 'https://reqres.in/api/colors?page=2'
-let sum = 9;
-let idNum = 'colorId';
-let idYear = 'year';
-let idHex = 'hex';
-let idPant = 'pantone';
+let url2 = 'https://reqres.in/api/colors?page=2',
+    sum = 9,
+    idCard = 'color-card-',
+    idNum = 'colorId',
+    idYear = 'year',
+    idHex = 'hex',
+    idPant = 'pantone';
 
 fetch(url2) 
 .then(response => response.json() )
@@ -14,14 +15,17 @@ fetch(url2)
         resYear = idYear + sum.toString();
         resHex = idHex + sum.toString();
         resPant = idPant + sum.toString();
-        let colorId = document.getElementById(resNum)
-        let yearId = document.getElementById(resYear)
-        let hexId = document.getElementById(resHex)
-        let pantId = document.getElementById(resPant)
+        resCard = idCard + sum.toString();
+        let colorId = document.getElementById(resNum),
+            yearId = document.getElementById(resYear),
+            hexId = document.getElementById(resHex),
+            pantId = document.getElementById(resPant),
+            cardId = document.getElementById(resCard)
         colorId.innerHTML = `<p>${data.data[i].name}</p>`
         yearId.innerHTML = `<p>${data.data[i].year}</p>`
         hexId.innerHTML = `<p>${data.data[i].color}</p>`
         pantId.innerHTML = `<p>${data.data[i].pantone_value}</p>`
+        cardId.style.backgroundColor = data.data[i].color
         sum ++; 
     }
     console.log(res);

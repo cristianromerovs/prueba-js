@@ -1,10 +1,44 @@
 .color-card {
-    border: 1px solid #202226;
     margin: 5px;
     height: 25vh;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+
+    .year, .pantone {
+        position: absolute;
+        font-size: 15px;
+        color: #FFF;
+    }
 
     .year {
-        background-color: red;
+        top: 5%;
+        left: 5%;
+    }
+
+    .pantone {
+        bottom: 5%;
+        right: 5%;
+    }
+
+    .colorId {
+        font-weight: 100;
+    }
+
+    .hex, .colorId {
+        color: #FFF;
+        font-size: 20px;
+    }
+
+    .hex {
+        font-weight: 700;
+    }
+
+    p {
+        margin: 0px;
     }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <title>Color: </title>
+</head>
+<body>
+    <div class="container-fluid header d-flex justify-content-center">
+        <h1>Colores</h1>
+    </div>
+
+    <div class="container-fluid color-full" id="color-full">
+        <div class="selected-year"></div>
+        <div class="div d-flex flex-row align-items-center">
+            <input type="text" id="hexCopy" value="hola" class="clipboard">
+            <span><ion-icon class="icon" name="copy-outline"></ion-icon></span>
+        </div>
+        <h2 class="copy-message">¡Copiado!</h2>
+        <div class="selected-pantone"></div>
+    </div>
+
+    <script>
+        let url0 = 'https://reqres.in/api/colors';
+        fetch(url0) 
+        .then(response => response.json() )
+        .then(data => {
+            console.log(data.data[2].name);
+            document.getElementById("color-full").style.backgroundColor = data.data[2].color;
+            document.getElementById("hexCopy").value = data.data[2].color;
+            document.title = data.data[2].name + " " + data.data[2].color;
+        })
+        .catch(err => console.log(err));
+
+        const button = document.querySelector('.icon');
+        const input = document.querySelector('.clipboard');
+
+        button.addEventListener('click', function(){
+            input.focus();
+            document.execCommand('selectAll');
+            document.execCommand('copy');
+        });
+    </script>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

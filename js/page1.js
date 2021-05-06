@@ -1,6 +1,7 @@
 let url = 'https://reqres.in/api/colors',
     url2 = 'https://reqres.in/api/colors?page=2',
     sum = 0,
+    idCard = 'color-card-',
     idNum = 'colorId',
     idYear = 'year',
     idHex = 'hex',
@@ -15,14 +16,17 @@ fetch(url)
         resYear = idYear + sum.toString();
         resHex = idHex + sum.toString();
         resPant = idPant + sum.toString();
-        let colorId = document.getElementById(resName)
-        let yearId = document.getElementById(resYear)
-        let hexId = document.getElementById(resHex)
-        let pantId = document.getElementById(resPant)
+        resCard = idCard + sum.toString();
+        let colorId = document.getElementById(resName),
+            yearId = document.getElementById(resYear),
+            hexId = document.getElementById(resHex),
+            pantId = document.getElementById(resPant),
+            cardId = document.getElementById(resCard)
         colorId.innerHTML = `<p>${data.data[i].name}</p>`
         yearId.innerHTML = `<p>${data.data[i].year}</p>`
         hexId.innerHTML = `<p>${data.data[i].color}</p>`
         pantId.innerHTML = `<p>${data.data[i].pantone_value}</p>`
+        cardId.style.backgroundColor = data.data[i].color
         sum ++; 
     }
 })
@@ -37,18 +41,24 @@ fetch(url2)
         resYear = idYear + sum.toString();
         resHex = idHex + sum.toString();
         resPant = idPant + sum.toString();
+        resCard = idCard + sum.toString();
         let colorId = document.getElementById(resName),
             yearId = document.getElementById(resYear),
             hexId = document.getElementById(resHex),
-            pantId = document.getElementById(resPant)
+            pantId = document.getElementById(resPant),
+            cardId = document.getElementById(resCard)
         colorId.innerHTML = `<p>${data.data[i].name}</p>`
         yearId.innerHTML = `<p>${data.data[i].year}</p>`
         hexId.innerHTML = `<p>${data.data[i].color}</p>`
         pantId.innerHTML = `<p>${data.data[i].pantone_value}</p>`
+        cardId.style.backgroundColor = data.data[i].color
         sum ++; 
     }
 })
 .catch(err => console.log(err));
+
+
+
 
 
 

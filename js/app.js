@@ -16,23 +16,9 @@ fetch(url)
         sum ++; 
     }
 
-    console.log(sum, res, i);
+    console.log(sum, res);
 })
 .catch(err => console.log(err));
 
-fetch(url2) 
-.then(response => response.json() )
-.then(data2 => {
-
-    for (var x = 5; x < 7; x++) {
-        res = idNum + x.toString();
-        let colorId = document.getElementById(res)
-        colorId.innerHTML = `<p>${data2.data[x].name}</p>`
-        sum ++; 
-    }
-
-    console.log(sum, res, x);
-})
-.catch(err => console.log(err));
 
 

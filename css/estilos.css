@@ -1,0 +1,26 @@
+.color-card {
+  border: 1px solid #202226;
+  margin: 5px;
+  height: 25vh;
+  border-radius: 10px; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+.header {
+  padding: 10px 0px; }
+  .header h1 {
+    color: #202226;
+    font-weight: 700; }
+
+.navigation-indicators {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 10px; }
+  .navigation-indicators a {
+    text-decoration: none;
+    color: #202226;
+    font-size: 20px; }
